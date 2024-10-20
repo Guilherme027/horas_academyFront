@@ -4,8 +4,6 @@ import { Image, View, Text, TextInput, StyleSheet, TouchableOpacity } from 'reac
 export default function CadastroScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      
-      {/* Logo posicionada fora do formulário */}
       <View style={styles.logoContainer}>
         <Image 
           source={require('../assets/logobranca.png')} 
@@ -29,15 +27,17 @@ export default function CadastroScreen({ navigation }) {
         <TouchableOpacity style={styles.registerButton}>
           <Text style={styles.registerButtonText}>CADASTRAR</Text>
         </TouchableOpacity>
+      </View>
 
-        <TouchableOpacity style={styles.backButton} onPress={() => {
+      <TouchableOpacity 
+        style={styles.backButton} 
+        onPress={() => {
           if (navigation.canGoBack()) {
             navigation.goBack();
           }
         }}>
-          <Text style={styles.backButtonText}>Voltar</Text>
-        </TouchableOpacity>
-      </View>
+        <Text style={styles.backButtonText}>Voltar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#86aaf0',
   },
   logoContainer: {
-    marginBottom: 30, // Espaçamento entre a logo e o formulário
+    marginBottom: 30, 
     alignItems: 'center',
   },
   logo: {
-    width: 120,  // Tamanho ajustável da logo
+    width: 120,  
     height: 120,
     resizeMode: 'contain', 
   },
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderColor: 'black',
     borderWidth: 2,
-    borderRadius: 10,
+    borderRadius: 13,
     paddingHorizontal: 10,
     marginTop: 5,
     marginBottom: 10,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginTop: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
@@ -108,5 +108,6 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     fontSize: 18,
+    color: 'black',
   },
 });
