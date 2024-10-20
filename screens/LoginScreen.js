@@ -1,0 +1,119 @@
+import React from 'react';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
+const LoginScreen = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('../assets/logobranca.png')}
+          style={styles.logo}
+        />
+      </View>
+
+      <View style={styles.formContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Usuário"
+          placeholderTextColor="#555"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          secureTextEntry
+          placeholderTextColor="#555"
+        />
+
+        <TouchableOpacity onPress={() => console.log('Forgot Password')} style={styles.forgotPassword}>
+          <Text style={styles.forgotText}>Esqueceu sua senha?</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={styles.loginButton} 
+          onPress={() => {
+            console.log('Login');
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Cadastro' }], 
+            });
+          }}
+        >
+          <Text style={styles.loginText}>LOGIN</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
+          <Text style={styles.signUpText}>Sign UP</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#80A3FF',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain', 
+  },
+  formContainer: {
+    width: '70%',
+    backgroundColor: 'rgba(255, 255, 255, 0.75)',
+    borderRadius: 10,
+    padding: 30,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 5,
+    borderWidth: 3, 
+    borderColor: '#fff',
+  },
+  input: {
+    backgroundColor: '#fff',
+    borderRadius: 11,
+    borderWidth: 2,
+    marginBottom: 15,
+    paddingLeft: 10,
+    height: 40,
+    fontSize: 16,
+    borderColor: '#000',
+  },
+  forgotPassword: {
+    alignItems: 'flex-end',
+    marginBottom: 20,
+  },
+  forgotText: {
+    color: '#333',
+  },
+  loginButton: {
+    backgroundColor: '#80A3FF',
+    paddingVertical: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor:'#ffff',
+  },
+  loginText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  signUpText: {
+    color: '#000',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+});
+
+export default LoginScreen;
