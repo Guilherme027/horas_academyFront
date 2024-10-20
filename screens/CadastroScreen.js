@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    fontSize: 18,
+    fontSize: 15,
     alignSelf: 'flex-start',
     marginTop: 10,
   },
