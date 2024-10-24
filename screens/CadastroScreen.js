@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import axios from 'axios';
 
 export default function CadastroScreen({ navigation }) {
   return (
